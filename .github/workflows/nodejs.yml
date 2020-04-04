@@ -24,7 +24,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: forever stopall
     - run: cd backend/answers-logger && npm ci
-    - run: cd backend/answers-logger && npm start
+    - run: cd backend/answers-logger && npm run build
+    - run: cd backend/answers-logger && forever start build/app.js
       env:
         CI: true
