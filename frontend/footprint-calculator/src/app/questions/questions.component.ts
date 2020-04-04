@@ -13,4 +13,13 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showQuestion() {
+    for (let i = 0; i < this.showQuestions.length; i++) {
+      if (this.showQuestions[i]) {
+        this.showQuestions[i + 1] = true;
+        this.showQuestions[i] = false;
+        break;
+      }
+    }
+  }
 }

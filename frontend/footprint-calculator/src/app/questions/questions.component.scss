@@ -20,6 +20,20 @@ i {
     -webkit-transform: rotate(45deg);
   }
 
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    cursor: pointer;
+  }
+
+.button-next-question {
+  position: relative;
+  background: blue;
+  border: blue 1px solid;
+  color: white;
+  float: right;
+  cursor: pointer;
+}
 
 .logo {
     height: 20vh;

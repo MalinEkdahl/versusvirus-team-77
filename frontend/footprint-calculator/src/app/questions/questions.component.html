@@ -1,10 +1,8 @@
 <div>
-    <div *ngIf="showQuestions[0]">
-        <app-question-one></app-question-one>
-        <i class="arrow down" (click)="showQuestions[0]=false; showQuestions[1]=true"></i>
-    </div>
-    <div *ngIf="showQuestions[1]">
-        <app-question-two></app-question-two>
-        <i class="arrow down" (click)="showQuestions[1]=false"></i>
-    </div>
+    <app-question-one *ngIf="showQuestions[0]"></app-question-one>
+    <app-question-two *ngIf="showQuestions[1]"></app-question-two>
+    <button class="button-next-question" (click)="showQuestion()">
+        Next question
+        <i class="arrow right" ></i>
+    </button>
 </div>
