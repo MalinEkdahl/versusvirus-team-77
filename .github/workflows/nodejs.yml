@@ -28,7 +28,7 @@ jobs:
     - run: cd backend/answers-logger && npm ci
     - run: cd backend/answers-logger && npm run build
     - run: mv backend/answers-logger/build/app.js ~/backend-prod/build/
-    - run: rm -dr backend/answers-logger/node_modules
+    - run: rm -dr ~/backend-prod/node_modules
     - run: mv backend/answers-logger/node_modules ~/backend-prod
     - run: forever start ~/backend-prod/build/app.js
       env:
