@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -24,7 +24,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: forever stopall
     - run: cd backend/answers-logger && npm ci
-    - run: cd backend/answers-logger && npm start
+    - run: cd backend/answers-logger && npm run build
+    - run: mv backend/answers-logger/build/app.js ~/backend-prod/build/
+    - run: rm -dr backend/answers-logger/node_modules
+    - run: mv backend/answers-logger/node_modules ~/backend-prod
+    - run: forever start ~/backend-prod/build/app.js
       env:
         CI: true

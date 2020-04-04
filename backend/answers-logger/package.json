@@ -4,6 +4,7 @@
   "description": "a logger to keep answers from user in versus virus team 77 project",
   "main": "index.ts",
   "scripts": {
+    "build": "tsc",
     "dev": "nodemon src/app.ts",
     "start": "tsc && node build/app"
   },
