@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Logger
 app.post("/answer", (req: Request, res: Response, next: NextFunction) => {
-  logFile.write(JSON.stringify(req.body) + os.EOL);
+  logFile.write(Date.now().toString() + JSON.stringify(req.body) + os.EOL);
   res.send('answer has been logged');
 });
 
