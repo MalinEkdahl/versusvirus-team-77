@@ -39,7 +39,7 @@ export class CarbonCalculatorService {
 /**
  * Category of the CO2 emitter
  */
-enum Category {
+export enum Category {
   BENZIN,
   DIESEL,
   TRAIN,
