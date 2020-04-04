@@ -1,0 +1,8 @@
+# log
+*.log
+
+# compiled output
+/build
+
+# dependencies
+/node_modules
