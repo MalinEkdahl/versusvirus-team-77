@@ -1,1 +1,31 @@
-<h1 class="title">Question 1</h1>
+<div class="container column">
+  <img class="question-logo" src="../assets/Mobility.png">
+  <h1 class="question-title">Travel to work</h1>
+  <div class="row row-one">
+    <p>Choose your usual Transport vehicle : </p>
+    <ng-select [items]="['bab', 'ad']"
+      [searchable]="false"
+      bindLabel="name"
+      class="select custom">
+    </ng-select>
+  </div>
+  <p>How did you travel behaviour to work changed ?</p>
+  <div class="row row-two">
+    <div class="column small-box">
+      <p>Distance you traveled befor the crisis :</p>
+      <ng-select [items]="['bab', 'ad']"
+        [searchable]="false"
+        bindLabel="name"
+        class="select custom">
+      </ng-select>
+    </div>
+    <div class="column">
+      <p>Distance you traveled during the crisis :</p>
+      <ng-select [items]="['bab', 'ad']"
+        [searchable]="false"
+        bindLabel="name"
+        class="select custom">
+      </ng-select>
+    </div>
+  </div>
+</div>
