@@ -1,10 +1,18 @@
 <div id="grad">
+  <div *ngIf="!showQuestions && !showEvaluation">
   <img class="logo" src="../assets/Logo.png">
   <p>
     There will be lots of explanatory text here
   </p>
-  <app-questions></app-questions>
-  <app-evaluation></app-evaluation>
+  <i class="arrow down" (click)="showQuestions=true"></i>
+  </div>
+  <div *ngIf="showQuestions">
+    <app-questions></app-questions>
+    <i class="arrow down" (click)="showEvaluation=true; showQuestions=false"></i>
+  </div>
+  <div *ngIf="showEvaluation">
+    <app-evaluation></app-evaluation>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

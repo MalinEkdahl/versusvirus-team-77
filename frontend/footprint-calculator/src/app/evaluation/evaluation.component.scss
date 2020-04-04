@@ -1,0 +1,51 @@
+i {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.left {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.logo {
+    height: 20vh;
+}
+
+.comparison-box { 
+    float: left;
+    min-width: 33vw;
+    max-width: 33vw;
+    min-height: 10vh;
+}
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30vw;
+  height: 8vh;
+  margin: 1vh;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: transparent;
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: white;
+  border-radius: 10px;
+}
