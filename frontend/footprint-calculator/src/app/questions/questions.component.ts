@@ -6,6 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
+  public showQuestions: boolean[] = [true, false];
+
   constructor() { }
 
   ngOnInit(): void {

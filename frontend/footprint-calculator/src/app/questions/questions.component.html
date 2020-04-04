@@ -1,5 +1,12 @@
 <div>
     <img class="logo" src="../assets/Logo.png">
-<h1 class="title">QUESTIONS</h1>
-<p>there will be questions here</p>
+    <h1 class="title">QUESTIONS</h1>
+    <div *ngIf="showQuestions[0]">
+        <app-question-one></app-question-one>
+        <i class="arrow down" (click)="showQuestions[0]=false; showQuestions[1]=true"></i>
+    </div>
+    <div *ngIf="showQuestions[1]">
+        <app-question-two></app-question-two>
+        <i class="arrow down" (click)="showQuestions[1]=false"></i>
+    </div>
 </div>

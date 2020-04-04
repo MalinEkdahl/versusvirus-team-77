@@ -28,7 +28,14 @@ i {
     float: left;
     min-width: 33vw;
     max-width: 33vw;
-    min-height: 10vh;
+    min-height: 8vh;
+    max-height: 8vh;
+    text-align: center;
+
+    p {     
+      font-size: 4vh;
+      margin: 1vh;
+    }
 }
 
 progress[value] {
@@ -36,7 +43,7 @@ progress[value] {
   -webkit-appearance: none;
   appearance: none;
   width: 30vw;
-  height: 8vh;
+  height: 6vh;
   margin: 1vh;
 }
 progress[value]::-webkit-progress-bar {
