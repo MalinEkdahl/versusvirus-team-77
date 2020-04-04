@@ -1,31 +1,62 @@
 <div class="container column">
   <img class="question-logo" src="../assets/Mobility.png">
-  <h1 class="question-title">Travel to work</h1>
+  <h1 class="question-title">Mobility</h1>
   <div class="row row-one">
-    <p>Choose your usual Transport vehicle : </p>
-    <ng-select [items]="['bab', 'ad']"
-      [searchable]="false"
-      bindLabel="name"
-      class="select custom">
-    </ng-select>
-  </div>
-  <p>How did you travel behaviour to work changed ?</p>
-  <div class="row row-two">
-    <div class="column small-box">
-      <p>Distance you traveled befor the crisis :</p>
+    <div>
+      <h4>before the lockdown</h4>
+      <p>How many kilometers do you use your car <u>per year</u>?</p>
       <ng-select [items]="['bab', 'ad']"
         [searchable]="false"
         bindLabel="name"
         class="select custom">
       </ng-select>
     </div>
-    <div class="column">
-      <p>Distance you traveled during the crisis :</p>
+
+    <div>
+      <h4>during the lockdown</h4>
+      <p>How many kilometers do you use your car <u>per week</u>?</p>
       <ng-select [items]="['bab', 'ad']"
         [searchable]="false"
         bindLabel="name"
         class="select custom">
       </ng-select>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div>
+      <h4>before the lockdown</h4>
+      <p>How many kilometers do you use public transport <u>per week</u>?</p>
+      <ng-select [items]="['bab', 'ad']"
+        [searchable]="false"
+        bindLabel="name"
+        class="select custom">
+      </ng-select>
+    </div>
+
+    <div>
+      <h4>during the lockdown</h4>
+      <p>How many kilometers do you use public transport <u>per week</u>?</p>
+      <ng-select [items]="['bab', 'ad']"
+        [searchable]="false"
+        bindLabel="name"
+        class="select custom">
+      </ng-select>
+    </div>
+  </div>
+  <hr/>
+  <div class="column">
+    <p><b>Why did you move less than before the lockdown?</b></p>
+    <div class="column">
+      <div class="row">
+        <input type="radio" value="0" name="reason" ngModel> Because I'm working in the home office.
+      </div>
+      <div class="row">
+        <input type="radio" value="1" name="reason" ngModel> Because I'm working not that far away anymore.
+      </div>
+      <div class="row">
+        <input type="radio" value="2" name="reason" ngModel> Because I'm using my bike now.
+      </div>
     </div>
   </div>
 </div>

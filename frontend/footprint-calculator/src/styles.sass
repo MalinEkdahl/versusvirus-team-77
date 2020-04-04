@@ -2,23 +2,23 @@
 @import "~@ng-select/ng-select/themes/default.theme.css"
 
 body
-    font-family: 'PT Sans Caption', sans-serif
+  font-family: 'PT Sans Caption', sans-serif
 
 .ng-select.custom .ng-value
-    color: white
+  color: white
 
 .ng-select.custom .ng-select-container
-    background: transparent
-    border: white 3px solid !important
+  background: transparent
+  border: white 3px solid !important
 
 .ng-select.custom .ng-clear-wrapper
-    color: white
+  color: white
 
 .ng-select.custom .ng-arrow-wrapper
-    border: white 3px solid
-    width: 36px
-    margin-right: -3px
-    height: 36px
+  border: white 3px solid
+  width: 36px
+  margin-right: -13px
+  height: 36px
 
 .ng-select.custom .ng-arrow-wrapper .ng-arrow
   position: relative
@@ -49,9 +49,13 @@ hr
   width: 100px
 
 .row
+  width: 100%
   display: flex
   flex-direction: row
   align-items: center
+  div
+    padding-left: 10px
+    padding-right: 10px
 
 .column
   display: flex
@@ -59,8 +63,12 @@ hr
   align-items: center
 
 .question-logo
-    width: 15vw
+  width: 15vw
 
 .question-title
-    margin-top: auto
-    font-size: 3em
+  margin-top: auto
+  font-size: 3em
+
+@media only screen and (max-width: 600px)
+  .row
+    flex-direction: column
