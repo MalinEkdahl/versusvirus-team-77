@@ -42,7 +42,8 @@ export class CarbonCalculatorService {
   };
 
   public userResults = {
-    mobility: {before: 1, after: 0}
+    mobility: {before: 1, after: 0},
+    travel: {before: 1, after: 0}
   }
 
   public calculateAll() {
@@ -50,8 +51,13 @@ export class CarbonCalculatorService {
   }
 
   private calculateMobility() {
-    this.userResults.mobility.before = this.userSelection.mobilityCarPerWeekBefore * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekBefore * categoryConst.publicTransport
-    this.userResults.mobility.after = this.userSelection.mobilityCarPerWeekAfter * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekAfter * categoryConst.publicTransport
+    this.userResults.mobility.before = 52 * (this.userSelection.mobilityCarPerWeekBefore * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekBefore * categoryConst.publicTransport);
+    this.userResults.mobility.after = 52 * (this.userSelection.mobilityCarPerWeekAfter * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekAfter * categoryConst.publicTransport);
+  }
+
+  private calculateTravel() {
+    this.userResults.travel.before = (this.userSelection.hoursSpentInAirplane * categoryConst.airplane/2) + (this.userSelection.daysSpentOnCruise * categoryConst.cruise/2) + this.userSelection.daysSpentInHotelBefore * categoryConst.hotel
+    this.userResults.travel.after = this.userSelection.daysSpentInHotelAfter * categoryConst.hotel;
   }
 
   constructor() { }

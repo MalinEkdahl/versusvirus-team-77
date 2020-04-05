@@ -18,20 +18,20 @@
   }
 }
 
-.result-in-purcent-left, .result-in-purcent-right {
+.result-in-percent-left, .result-in-percent-right {
   height: 20px;
   background-color: white;
   padding: 0;
   overflow: hidden;
 }
-.result-in-purcent-left {
+.result-in-percent-left {
   border-radius: 5px 2px 2px 5px;
   margin-left: auto;
   p {
     text-align: right;
   }
 }
-.result-in-purcent-right {
+.result-in-percent-right {
   border-radius: 2px 5px 5px 2px;
   margin-right: auto;
   p {
@@ -44,7 +44,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .result-in-purcent-right, .result-in-purcent-left {
+  .result-in-percent-right, .result-in-percent-left {
     border-radius: 5px 5px 5px 5px;
   }
 

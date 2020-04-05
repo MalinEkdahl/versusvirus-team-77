@@ -1,6 +1,7 @@
 <div>  
     <img class="question-logo" src="../assets/Logo_small.png">
     <h1 class="question-title">COMPARISONS</h1>
+    <h2 class="question-title">PER YEAR</h2>
 
     <div class="column">
         <div class="row hide-on-sm">
@@ -25,46 +26,66 @@
                 </div>
             </div>
         </div>
-        <em *ngIf="!showMobilityFeedback" class="feedback-button clickable" (click)="showMobilityFeedback = !showMobilityFeedback">
-            about this result ...
-        </em>
-        <div *ngIf="showMobilityFeedback" class="clickable" (click)="showMobilityFeedback = !showMobilityFeedback">
-            <div>
+        <div>
+            <em *ngIf="!showMobilityFeedback" class="feedback-button clickable" (click)="showMobilityFeedback = !showMobilityFeedback">
+                about this result ...
+            </em>
+            <div *ngIf="showMobilityFeedback" class="clickable" (click)="showMobilityFeedback = !showMobilityFeedback">
                 <div>
-                    <p *ngIf="carbonCalculator.userResults.mobility.before >= carbonCalculator.userResults.mobility.after">
-                        Your CO<sub>2</sub> decreased ({{carbonCalculator.userResults.mobility.before - carbonCalculator.userResults.mobility.after}} per week)<br/>
-                        Great job keep this lifestyle up!
+                    <div>
+                        <p *ngIf="carbonCalculator.userResults.mobility.before >= carbonCalculator.userResults.mobility.after">
+                            Your CO<sub>2</sub> decreased ({{carbonCalculator.userResults.mobility.before - carbonCalculator.userResults.mobility.after}} per week)<br/>
+                            Great job keep this lifestyle up!
+                        </p>
+                        <p *ngIf="carbonCalculator.userResults.mobility.before < carbonCalculator.userResults.mobility.after">
+                            Your CO<sub>2</sub> increased ({{carbonCalculator.userResults.mobility.after - carbonCalculator.userResults.mobility.before}}kg per week)<br/>
+                            if CO2 (50*5star)>before travel:
+                            Everybody is waiting for the moment  to break out of the well known surroundings again. 
+                            We do too! 
+                            But didn’t you catch yourself going for walks in your neighborhood and finding new interesting things that you never knew existed before? 
+                            
+                            With your travel behavior you could also...
+                            ...heat up one olympia swimming pool (2’500 m^3) about on xy°C for xy hours
+                            ...use your laundry machine for xy years
+                            ...travel by train xy times around the world
+                        </p>
+                    </div>
+                    <em>
+                        "{{this.carbonCalculator.whyDidyouMoveLess[this.carbonCalculator.userSelection.whyDidyouMoveLess].value}}"
+                    </em>
+                    <p *ngIf="this.carbonCalculator.userSelection.whyDidyouMoveLess === 0">
+                        Obviously this is not always possible to do daily when we’re back to normal but maybe because you’re already set up at home you could try to implement this more regularly.
                     </p>
-                    <p *ngIf="carbonCalculator.userResults.mobility.before < carbonCalculator.userResults.mobility.after">
-                        Your CO<sub>2</sub> increased ({{carbonCalculator.userResults.mobility.after - carbonCalculator.userResults.mobility.before}}kg per week)<br/>
-                        if CO2 (50*5star)>before travel:
-                        Everybody is waiting for the moment  to break out of the well known surroundings again. 
-                        We do too! 
-                        But didn’t you catch yourself going for walks in your neighborhood and finding new interesting things that you never knew existed before? 
-                        
-                        With your travel behavior you could also...
-                        ...heat up one olympia swimming pool (2’500 m^3) about on xy°C for xy hours
-                        ...use your laundry machine for xy years
-                        ...travel by train xy times around the world
+                    <p *ngIf="this.carbonCalculator.userSelection.whyDidyouMoveLess === 1">
+                        Great, you live closer to your workplace therefore you can decrease your CO2 emission by having a shorter commute to work.
+                    </p>
+                    <p *ngIf="this.carbonCalculator.userSelection.whyDidyouMoveLess === 2">
+                        This is not really recommended right now but good job at trying to change your lifestyle. Keep this up for the future!                </p>
+                    <p *ngIf="this.carbonCalculator.userSelection.whyDidyouMoveLess === 3">
+                        Awesome! You’re implementing social distancing and working out in the fresh air at the same time! This doesn’t only have an impact on the environment, but also especially on your physical and mental well being. Keep it up!
+                    </p>
+                    <p *ngIf="this.carbonCalculator.userSelection.whyDidyouMoveLess === 4">
+                        keep it up!
                     </p>
                 </div>
-                <em>
-                    "{{this.carbonCalculator.whyDidyouMoveLess[this.carbonCalculator.userSelection.whyDidyouMoveLess].value}}"
-                </em>
-                <p *ngIf="this.carbonCalculator.userSelection.whyDidyouMoveLess === 0">
-                    Obviously this is not always possible to do daily when we’re back to normal but maybe because you’re already set up at home you could try to implement this more regularly.
-                </p>
-                <p *ngIf="this.carbonCalculator.userSelection.whyDidyouMoveLess === 1">
-                    Great, you live closer to your workplace therefore you can decrease your CO2 emission by having a shorter commute to work.
-                </p>
-                <p *ngIf="this.carbonCalculator.userSelection.whyDidyouMoveLess === 2">
-                    This is not really recommended right now but good job at trying to change your lifestyle. Keep this up for the future!                </p>
-                <p *ngIf="this.carbonCalculator.userSelection.whyDidyouMoveLess === 3">
-                    Awesome! You’re implementing social distancing and working out in the fresh air at the same time! This doesn’t only have an impact on the environment, but also especially on your physical and mental well being. Keep it up!
-                </p>
-                <p *ngIf="this.carbonCalculator.userSelection.whyDidyouMoveLess === 4">
-                    keep it up!
-                </p>
+            </div>
+        </div>
+        <div class="row for-value">
+            <div class="row-child-fix">
+                <div class="result-in-percent-left" [ngStyle]="getBeforeWidth(carbonCalculator.userResults.travel)">
+                    <p>{{carbonCalculator.userResults.travel.before}}kg CO<sub>2</sub></p>
+                </div>
+            </div>
+            <div class="show-on-sm">
+                before
+                <h2>Travel</h2>
+                after
+            </div>
+            <h2 class="hide-on-sm">Travel</h2>
+            <div class="row-child-fix">
+                <div class="result-in-percent-right" [ngStyle]="getAfterWidth(carbonCalculator.userResults.travel)">
+                    <p>{{carbonCalculator.userResults.travel.after}}kg CO<sub>2</sub></p>
+                </div>
             </div>
         </div>
     </div>
