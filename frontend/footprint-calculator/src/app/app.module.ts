@@ -10,6 +10,7 @@ import { EvaluationComponent } from './evaluation/evaluation.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuestionOneComponent } from './questions/question-one/question-one.component';
 import { QuestionTwoComponent } from './questions/question-two/question-two.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { QuestionTwoComponent } from './questions/question-two/question-two.comp
     EvaluationComponent,
     QuestionsComponent,
     QuestionOneComponent,
-    QuestionTwoComponent
+    QuestionTwoComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
