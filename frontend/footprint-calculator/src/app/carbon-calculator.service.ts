@@ -48,6 +48,7 @@ export class CarbonCalculatorService {
 
   public calculateAll() {
     this.calculateMobility();
+    this.calculateTravel();
   }
 
   private calculateMobility() {
