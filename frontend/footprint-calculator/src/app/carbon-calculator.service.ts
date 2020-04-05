@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Category } from './types/Category';
+import { categoryConst, Category } from './types/Category';
 import {
   mobilityCarPerYearBefore,
   mobilityCarPerWeekAfter,
@@ -12,15 +12,6 @@ import {
   providedIn: 'root'
 })
 export class CarbonCalculatorService {
-  // TODO: constants are not correct now
-  constant = {
-    [Category.BENZIN]: 4,
-    [Category.DIESEL]: 5,
-    [Category.TRAIN]: 2,
-    [Category.FOOD]: 1,
-    [Category.TRAVELLING]: 1,
-  }
-
   public mobilityCarPerYearBefore = mobilityCarPerYearBefore;
   public mobilityCarPerWeekAfter = mobilityCarPerWeekAfter;
   public mobilityPublicTransportPerWeekBefore = mobilityPublicTransportPerWeekBefore;
@@ -34,6 +25,10 @@ export class CarbonCalculatorService {
     mobilityPublicTransportPerWeekAfter: 0,
     whyDidyouMoveLess: 0
   };
+
+  public userResults = {
+    mobility: {before: 100, after: 400}
+  }
   
   /**
    * @param category The category of the C02 emitter
@@ -41,7 +36,7 @@ export class CarbonCalculatorService {
    * @param afterInput The value after crisis (km, ...)
    * @return delta of carbon emission
    */
-  carbonDeltaCalculation(category: Category = Category.BENZIN, beforeInput: number, afterInput: number) {
+  carbonDeltaCalculation(category: Category, beforeInput: number, afterInput: number) {
     const deltaEmission = this.carbonCalculation(category, beforeInput) - this.carbonCalculation(category, afterInput)
     return deltaEmission;
   }
@@ -51,8 +46,8 @@ export class CarbonCalculatorService {
    * @param input
    * @return carbon emission
    */
-  carbonCalculation(category: Category = Category.BENZIN, input: number) {
-    return input * this.constant[category];
+  carbonCalculation(category: Category, input: number) {
+    return input * categoryConst[category];
   }
 
   constructor() { }

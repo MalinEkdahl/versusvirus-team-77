@@ -8,3 +8,11 @@ export enum Category {
   FOOD,
   TRAVELLING
 }
+
+export const categoryConst = {
+  [Category.BENZIN]: 1,
+  [Category.DIESEL]: 2,
+  [Category.TRAIN]: 3,
+  [Category.FOOD]: 4,
+  [Category.TRAVELLING]: 5 
+}
