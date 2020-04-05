@@ -12,7 +12,12 @@
     <div class="spacer"></div>
     <div class="question-nav">
         <div (click)="showQuestion()">
-        Next question
+            <ng-container *ngIf="showQuestions[showQuestions.length - 1];else nextQuestion">
+                To your results
+            </ng-container>
+            <ng-template #nextQuestion>
+                Next question
+            </ng-template>
         <i class="arrow right"></i>
         </div>
     </div>
