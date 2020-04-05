@@ -3,17 +3,26 @@
     <h1 class="question-title">COMPARISONS</h1>
 
     <div class="column">
-        <div class="row">
+        <div class="row hide-on-sm">
             <p><b>Before the lockdown</b></p>
             <p><b>During the lockdown</b></p>
         </div>
-        <div class="row">
+        <div class="row for-value">
             <div class="row-child-fix">
-                <div class="result-in-purcent-left"></div>
+                <div class="result-in-purcent-left" [ngStyle]="getBeforeWidth(carbonCalculator.userResults.mobility)">
+                    <p>{{carbonCalculator.userResults.mobility.before}}kg CO<sub>2</sub></p>
+                </div>
             </div>
-            <h2>Mobility</h2>
+            <div class="show-on-sm">
+                before
+                <h2>Mobility</h2>
+                after
+            </div>
+            <h2 class="hide-on-sm">Mobility</h2>
             <div class="row-child-fix">
-                <div class="result-in-purcent-right"></div>
+                <div class="result-in-purcent-right" [ngStyle]="getAfterWidth(carbonCalculator.userResults.mobility)">
+                    <p>{{carbonCalculator.userResults.mobility.after}}kg CO<sub>2</sub></p>
+                </div>
             </div>
         </div>
     </div>

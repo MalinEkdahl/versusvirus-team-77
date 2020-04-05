@@ -8,7 +8,21 @@ import { CarbonCalculatorService } from '../carbon-calculator.service';
 })
 export class EvaluationComponent implements OnInit {
 
-  constructor(public carbonCalculator: CarbonCalculatorService) { }
+  constructor(public carbonCalculator: CarbonCalculatorService) {
+    this.carbonCalculator.calculateAll();
+  }
+
+  getAfterWidth(values: {before: number, after: number}) {
+    const total = (values.before + values.after);
+    const result = values.after / total * 100;
+    return {'width': result + "%"};
+  }
+
+  getBeforeWidth(values: {before: number, after: number}) {
+    const total = (values.before + values.after);
+    const result = values.before / total * 100;
+    return {'width': result + "%"};
+  }
 
   ngOnInit(): void {
   }

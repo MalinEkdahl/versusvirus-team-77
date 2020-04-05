@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Category } from './types/Category';
+import { categoryConst } from './types/Category';
 import {
-  mobilityCarPerYearBefore,
+  mobilityCarPerWeekBefore,
   mobilityCarPerWeekAfter,
   mobilityPublicTransportPerWeekBefore,
   mobilityPublicTransportPerWeekAfter,
@@ -18,16 +18,7 @@ import {
   providedIn: 'root'
 })
 export class CarbonCalculatorService {
-  // TODO: constants are not correct now
-  constant = {
-    [Category.BENZIN]: 4,
-    [Category.DIESEL]: 5,
-    [Category.TRAIN]: 2,
-    [Category.FOOD]: 1,
-    [Category.TRAVELLING]: 1,
-  }
-
-  public mobilityCarPerYearBefore = mobilityCarPerYearBefore;
+  public mobilityCarPerWeekBefore = mobilityCarPerWeekBefore;
   public mobilityCarPerWeekAfter = mobilityCarPerWeekAfter;
   public mobilityPublicTransportPerWeekBefore = mobilityPublicTransportPerWeekBefore;
   public mobilityPublicTransportPerWeekAfter = mobilityPublicTransportPerWeekAfter;
@@ -39,7 +30,7 @@ export class CarbonCalculatorService {
   public daysSpentInHotelAfter = daysSpentInHotelAfter;
 
   public userSelection = {
-    mobilityCarPerYearBefore: 0,
+    mobilityCarPerWeekBefore: 0,
     mobilityCarPerWeekAfter: 0,
     mobilityPublicTransportPerWeekBefore: 0,
     mobilityPublicTransportPerWeekAfter: 0,
@@ -49,25 +40,18 @@ export class CarbonCalculatorService {
     daysSpentInHotelBefore: 0,
     daysSpentInHotelAfter: 0,
   };
-  
-  /**
-   * @param category The category of the C02 emitter
-   * @param beforeInput The value before crisis (km, ...)
-   * @param afterInput The value after crisis (km, ...)
-   * @return delta of carbon emission
-   */
-  carbonDeltaCalculation(category: Category = Category.BENZIN, beforeInput: number, afterInput: number) {
-    const deltaEmission = this.carbonCalculation(category, beforeInput) - this.carbonCalculation(category, afterInput)
-    return deltaEmission;
+
+  public userResults = {
+    mobility: {before: 1, after: 0}
   }
-  
-  /**
-   * @param category The category of the vehicle
-   * @param input
-   * @return carbon emission
-   */
-  carbonCalculation(category: Category = Category.BENZIN, input: number) {
-    return input * this.constant[category];
+
+  public calculateAll() {
+    this.calculateMobility();
+  }
+
+  private calculateMobility() {
+    this.userResults.mobility.before = this.userSelection.mobilityCarPerWeekBefore * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekBefore * categoryConst.publicTransport
+    this.userResults.mobility.after = this.userSelection.mobilityCarPerWeekAfter * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekAfter * categoryConst.publicTransport
   }
 
   constructor() { }
