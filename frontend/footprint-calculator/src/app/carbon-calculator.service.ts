@@ -57,8 +57,11 @@ export class CarbonCalculatorService {
   }
 
   private calculateTravel() {
+    const lockdown = new Date(2020, 3, 16);
+    const today = new Date();
+    const daysGoneBy = lockdown.getTime() - today.getTime() / (1000 * 3600 * 24);
     this.userResults.travel.before = (this.userSelection.hoursSpentInAirplane * categoryConst.airplane/2) + (this.userSelection.daysSpentOnCruise * categoryConst.cruise/2) + this.userSelection.daysSpentInHotelBefore * categoryConst.hotel;
-    this.userResults.travel.after = this.userSelection.daysSpentInHotelAfter * categoryConst.hotel;
+    this.userResults.travel.after = 365 * (this.userSelection.daysSpentInHotelAfter * categoryConst.hotel / daysGoneBy);
   }
 
   constructor() { }
