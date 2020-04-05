@@ -1,6 +1,10 @@
 <div>
     <app-question-one *ngIf="showQuestions[0]"></app-question-one>
     <app-question-two *ngIf="showQuestions[1]"></app-question-two>
+    <button *ngIf="!showQuestions[0]" class="button-next-question" (click)="backQuestion()">
+        back
+        <i class="arrow left" ></i>
+    </button>
     <button class="button-next-question" (click)="showQuestion()">
         Next question
         <i class="arrow right" ></i>
