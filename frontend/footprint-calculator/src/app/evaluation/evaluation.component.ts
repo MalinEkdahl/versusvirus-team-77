@@ -26,6 +26,10 @@ export class EvaluationComponent implements OnInit {
     return {'width': result + "%"};
   }
 
+  round(number: number) {
+    return Math.round(number);
+  }
+
   ngOnInit(): void {
   }
 
