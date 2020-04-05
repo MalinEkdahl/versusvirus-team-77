@@ -27,7 +27,7 @@ export class CarbonCalculatorService {
   };
 
   public userResults = {
-    mobility: {before: 100, after: 400}
+    mobility: {before: 1, after: 0}
   }
   
   /**
