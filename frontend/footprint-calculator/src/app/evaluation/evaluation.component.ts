@@ -8,6 +8,7 @@ import { CarbonCalculatorService } from '../carbon-calculator.service';
 })
 export class EvaluationComponent implements OnInit {
   showMobilityFeedback = false;
+  showTravelFeedback = false;
 
   constructor(public carbonCalculator: CarbonCalculatorService) {
     this.carbonCalculator.calculateAll();

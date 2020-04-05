@@ -86,5 +86,29 @@
                 </div>
             </div>
         </div>
+        <div>
+            <em *ngIf="!showTravelFeedback" class="feedback-button clickable" (click)="showTravelFeedback = !showTravelFeedback">
+                about this result ...
+            </em>
+            <div *ngIf="showTravelFeedback" class="clickable" (click)="showTravelFeedback = !showTravelFeedback">
+                <div>
+                    <div>
+                        <p *ngIf="carbonCalculator.userResults.travel.before >= carbonCalculator.userResults.travel.after">
+                            <b>
+                                Your CO<sub>2</sub> decreased ({{carbonCalculator.userResults.travel.before - carbonCalculator.userResults.travel.after}} per week)
+                            </b><br/>
+                            Great job keep this lifestyle up!
+                        </p>
+                        <p *ngIf="carbonCalculator.userResults.travel.before < carbonCalculator.userResults.travel.after">
+                            <b>
+                                Your CO<sub>2</sub> increased ({{carbonCalculator.userResults.travel.after - carbonCalculator.userResults.travel.before}}kg per week)
+                            </b><br/>
+                            Everybody is waiting for the moment  to break out of the well known surroundings again. <br/>
+                            <b>We do too!</b><br/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
