@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarbonCalculatorService } from 'src/app/carbon-calculator.service';
 
 @Component({
   selector: 'app-question-two',
@@ -6,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-two.component.sass']
 })
 export class QuestionTwoComponent implements OnInit {
-
-  constructor() { }
+  constructor(public carbonCalculator: CarbonCalculatorService) { }
 
   ngOnInit(): void {
   }

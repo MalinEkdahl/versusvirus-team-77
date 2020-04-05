@@ -1,1 +1,62 @@
-<h1 class="title">Question 2</h1>
+<div class="container column">
+    <img class="question-logo" src="../assets/Travel.png">
+    <h1 class="question-title">Travel</h1>
+    <div class="row row-one">
+        <div>
+        <h4>before the lockdown</h4>
+        <p>How many hours have you spent in an airplane in the last <u>two years</u>?</p>
+        <ng-select
+            [(ngModel)]="carbonCalculator.userSelection.hoursSpentInAirplane"
+            bindLabel="value"
+            bindValue="key"
+            [items]="carbonCalculator.hoursSpentInAirplane"
+            [searchable]="false"
+            class="select custom">
+        </ng-select>
+        </div>
+    
+    </div>
+    <hr/>
+    <div class="row">
+        <div>
+        <h4>before the lockdown</h4>
+        <p>How many days have you spent on a cruise ship in the last <u>two years</u>?</p>
+        <ng-select
+            [(ngModel)]="carbonCalculator.userSelection.daysSpentOnCruise"
+            bindLabel="value"
+            bindValue="key"
+            [items]="carbonCalculator.daysSpentOnCruise"
+            [searchable]="false"
+            class="select custom">
+        </ng-select>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div>
+        <h4>before the lockdown</h4>
+        <p>How many days have you spent in a hostel or hotel in the <u>last year</u>?</p>
+        <ng-select
+            [(ngModel)]="carbonCalculator.userSelection.daysSpentInHotelBefore"
+            bindLabel="value"
+            bindValue="key"
+            [items]="carbonCalculator.daysSpentInHotelBefore"
+            [searchable]="false"
+            class="select custom">
+        </ng-select>
+        </div>
+    
+        <div>
+        <h4>during the lockdown</h4>
+        <p>How many days have you spent in a hostel or hotel <u>since the lockdown</u>?</p>
+        <ng-select
+            [(ngModel)]="carbonCalculator.userSelection.daysSpentInHotelAfter"
+            bindLabel="value"
+            bindValue="key"
+            [items]="carbonCalculator.daysSpentInHotelAfter"
+            [searchable]="false"
+            class="select custom">
+        </ng-select>
+        </div>
+    </div>
+</div>

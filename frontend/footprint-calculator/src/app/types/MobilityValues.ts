@@ -1,5 +1,5 @@
 export const mobilityCarPerYearBefore = [
-  { key: 0, value: "not using" },
+  { key: 0, value: "Don't use" },
   { key: 2500, value: "0 to 5000km" },
   { key: 7500, value: "5000 - 10’000km" },
 	{ key: 12500, value: "10’000 - 15’000km" },
@@ -9,7 +9,7 @@ export const mobilityCarPerYearBefore = [
 ]
 
 export const mobilityCarPerWeekAfter = [
-  { key: 0, value: "Not using" },
+  { key: 0, value: "Don't use" },
   { key: 125, value: "0 - 250km" },
   { key: 375, value: "250 - 500km" },
 	{ key: 625, value: "500 - 750km" },
@@ -21,7 +21,7 @@ export const mobilityCarPerWeekAfter = [
 ]
 
 export const mobilityPublicTransportPerWeekBefore = [
-  { key: 0, value: "Not using" },
+  { key: 0, value: "Don't use" },
   { key: 100, value: "0 - 200km" },
 	{ key: 300, value: "200 - 400km" },
 	{ key: 500, value: "400 - 600km" },
@@ -32,7 +32,7 @@ export const mobilityPublicTransportPerWeekBefore = [
 ]
 
 export const mobilityPublicTransportPerWeekAfter = [
-  { key: 0, value: "Not using" },
+  { key: 0, value: "Don't use" },
   { key: 100, value: "0 - 200km" },
 	{ key: 300, value: "200 - 400km" },
 	{ key: 500, value: "400 - 600km" },
@@ -43,8 +43,8 @@ export const mobilityPublicTransportPerWeekAfter = [
 ]
 
 export const whyDidyouMoveLess = [
-	{ key: 0, value: "Because I'm working in the home office." },
-	{ key: 1, value: "Because I'm working not that far away anymore." },
-	{ key: 2, value: "Because I'm using my bike now." },
+	{ key: 0, value: "I was working from home." },
+	{ key: 1, value: "My workplace is nearer." },
+	{ key: 2, value: "I was using my bicycle." },
 	{ key: 3, value: "Nothing changed for me." }
 ]
