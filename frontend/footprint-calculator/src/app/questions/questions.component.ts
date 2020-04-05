@@ -18,9 +18,11 @@ export class QuestionsComponent implements OnInit {
   backQuestion() {
     for (let i = 0; i < this.showQuestions.length; i++) {
       // We want the last question
-      this.showQuestions[i - 1] = true;
-      this.showQuestions[i] = false;
-      break;
+      if (this.showQuestions[i]) {
+        this.showQuestions[i - 1] = true;
+        this.showQuestions[i] = false;
+        break;
+      }
     }
   }
 
