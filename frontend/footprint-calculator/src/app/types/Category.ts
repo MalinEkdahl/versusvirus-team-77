@@ -5,7 +5,7 @@
 export const categoryConst = {
   car: 141.98,
   publicTransport: 16.32,
-  airplane: 1, // TODO
-  cruise: 1, // TODO
-  hotel: 1, // TODO
+  airplane: 850*135.5, // 850km/h
+  cruise: 169,
+  hotel: 18.5, // took 4 star hotels as value
 }
