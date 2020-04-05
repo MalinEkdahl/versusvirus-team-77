@@ -5,21 +5,23 @@
       <hr/>
       <h3><em>"Crisis as a chance"</em></h3>
       <p>
-        COVID-19 changed our lives and our impact on the ecosystem, why don't we keep the good of these changes?<br/><br/>
+        COVID-19 changed our lives and our impact on the ecosystem, why don't we keep the benefit of these changes?<br/><br/>
         <b>#resourceconsciousliving</b><br/><br/>
       </p>
       <div>start</div>
       <i class="arrow down" (click)="showQuestions=true"></i>
     </div>
-    <div *ngIf="showQuestions">
-      <app-questions (endOfQuestions)="showResult()"></app-questions>
-    </div>
-    <div *ngIf="showEvaluation">
-      <app-evaluation></app-evaluation>
-      <i class="arrow down" (click)="showFeedbackSite()"></i>
-    </div>
-    <div *ngIf="showFeedback">
-      <app-feedback></app-feedback>
+    <div class="padding-bottom">
+      <div *ngIf="showQuestions">
+        <app-questions (endOfQuestions)="showResult()"></app-questions>
+      </div>
+      <div *ngIf="showEvaluation">
+        <app-evaluation></app-evaluation>
+        <i class="arrow down" (click)="showFeedbackSite()"></i>
+      </div>
+      <div *ngIf="showFeedback">
+        <app-feedback></app-feedback>
+      </div>
     </div>
   </div>
 </div>
