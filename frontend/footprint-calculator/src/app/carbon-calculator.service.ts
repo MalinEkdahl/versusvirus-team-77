@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { categoryConst } from './types/Category';
 import {
-  mobilityCarPerWeekBefore,
+  mobilityCarPerYearBefore,
   mobilityCarPerWeekAfter,
   mobilityPublicTransportPerWeekBefore,
   mobilityPublicTransportPerWeekAfter,
@@ -18,7 +18,7 @@ import {
   providedIn: 'root'
 })
 export class CarbonCalculatorService {
-  public mobilityCarPerWeekBefore = mobilityCarPerWeekBefore;
+  public mobilityCarPerYearBefore = mobilityCarPerYearBefore;
   public mobilityCarPerWeekAfter = mobilityCarPerWeekAfter;
   public mobilityPublicTransportPerWeekBefore = mobilityPublicTransportPerWeekBefore;
   public mobilityPublicTransportPerWeekAfter = mobilityPublicTransportPerWeekAfter;
@@ -30,7 +30,7 @@ export class CarbonCalculatorService {
   public daysSpentInHotelAfter = daysSpentInHotelAfter;
 
   public userSelection = {
-    mobilityCarPerWeekBefore: 0,
+    mobilityCarPerYearBefore: 0,
     mobilityCarPerWeekAfter: 0,
     mobilityPublicTransportPerWeekBefore: 0,
     mobilityPublicTransportPerWeekAfter: 0,
@@ -50,7 +50,7 @@ export class CarbonCalculatorService {
   }
 
   private calculateMobility() {
-    this.userResults.mobility.before = this.userSelection.mobilityCarPerWeekBefore * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekBefore * categoryConst.publicTransport
+    this.userResults.mobility.before = this.userSelection.mobilityCarPerYearBefore * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekBefore * categoryConst.publicTransport
     this.userResults.mobility.after = this.userSelection.mobilityCarPerWeekAfter * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekAfter * categoryConst.publicTransport
   }
 
