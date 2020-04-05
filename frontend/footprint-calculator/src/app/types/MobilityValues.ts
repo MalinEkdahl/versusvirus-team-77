@@ -1,43 +1,50 @@
-export type MobilityCarPerYearBefore = {
-  0: "not using",
-  2500: "0 to 5000km",
-  7500: "5000 - 10’000km",
-	12500: "10’000 - 15’000km",
-	17500: "15’000 - 20’000km",
-	25000: "20’000 - 30’000km",
-	30000: "30’000km +"
-}
+export const mobilityCarPerYearBefore = [
+  { key: 0, value: "not using" },
+  { key: 2500, value: "0 to 5000km" },
+  { key: 7500, value: "5000 - 10’000km" },
+	{ key: 12500, value: "10’000 - 15’000km" },
+	{ key: 17500, value: "15’000 - 20’000km" },
+	{ key: 25000, value: "20’000 - 30’000km" },
+	{ key: 30000, value: "30’000km +" }
+]
 
-export type MobilityCarPerWeekAfter = {
-  0: "Not using",
-  125: "0 - 250km",
-  375: "250 - 500km",
-	625: "500 - 750km",
-	875: "750 - 1000km",
-	1125: "1000 - 1250km",
-  1375: "1250 - 1500km",
-  1750: "1500 - 2000km",
-  2000: "2000km +"
-}
+export const mobilityCarPerWeekAfter = [
+  { key: 0, value: "Not using" },
+  { key: 125, value: "0 - 250km" },
+  { key: 375, value: "250 - 500km" },
+	{ key: 625, value: "500 - 750km" },
+	{ key: 875, value: "750 - 1000km" },
+	{ key: 1125, value: "1000 - 1250km" },
+  { key: 1375, value: "1250 - 1500km" },
+  { key: 1750, value: "1500 - 2000km" },
+  { key: 2000, value: "2000km +" }
+]
 
-export type MobilityPublicTransportPerWeekBefore = {
-  0: "Not using",
-  100: "0 - 200km",
-	300: "200 - 400km",
-	500: "400 - 600km",
-	700: "600 - 800km",
-	900: "800 - 1000km",
-	1100: "1000 - 1200km",
-	1200: "1200km +",
-}
+export const mobilityPublicTransportPerWeekBefore = [
+  { key: 0, value: "Not using" },
+  { key: 100, value: "0 - 200km" },
+	{ key: 300, value: "200 - 400km" },
+	{ key: 500, value: "400 - 600km" },
+	{ key: 700, value: "600 - 800km" },
+	{ key: 900, value: "800 - 1000km" },
+	{ key: 1100, value: "1000 - 1200km" },
+	{ key: 1200, value: "1200km +" },
+]
 
-export type MobilityPublicTransportPerWeekAfter = {
-  0: "Not using",
-  100: "0 - 200km",
-	300: "200 - 400km",
-	500: "400 - 600km",
-	700: "600 - 800km",
-	900: "800 - 1000km",
-	1100: "1000 - 1200km",
-	1200: "1200km +",
-}
+export const mobilityPublicTransportPerWeekAfter = [
+  { key: 0, value: "Not using" },
+  { key: 100, value: "0 - 200km" },
+	{ key: 300, value: "200 - 400km" },
+	{ key: 500, value: "400 - 600km" },
+	{ key: 700, value: "600 - 800km" },
+	{ key: 900, value: "800 - 1000km" },
+	{ key: 1100, value: "1000 - 1200km" },
+	{ key: 1200, value: "1200km +" },
+]
+
+export const whyDidyouMoveLess = [
+	{ key: 0, value: "Because I'm working in the home office." },
+	{ key: 1, value: "Because I'm working not that far away anymore." },
+	{ key: 2, value: "Because I'm using my bike now." },
+	{ key: 3, value: "Nothing changed for me." }
+]

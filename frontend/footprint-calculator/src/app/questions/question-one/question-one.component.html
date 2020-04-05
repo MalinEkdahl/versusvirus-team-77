@@ -5,9 +5,12 @@
     <div>
       <h4>before the lockdown</h4>
       <p>How many kilometers do you use your car <u>per year</u>?</p>
-      <ng-select [items]="['bab', 'ad']"
+      <ng-select
+        [(ngModel)]="carbonCalculator.userSelection.mobilityCarPerYearBefore"
+        bindLabel="value"
+        bindValue="key"
+        [items]="carbonCalculator.mobilityCarPerYearBefore"
         [searchable]="false"
-        bindLabel="name"
         class="select custom">
       </ng-select>
     </div>
@@ -15,9 +18,12 @@
     <div>
       <h4>during the lockdown</h4>
       <p>How many kilometers do you use your car <u>per week</u>?</p>
-      <ng-select [items]="['bab', 'ad']"
+      <ng-select
+        [(ngModel)]="carbonCalculator.userSelection.mobilityCarPerWeekAfter"
+        bindLabel="value"
+        bindValue="key"
+        [items]="carbonCalculator.mobilityCarPerWeekAfter"
         [searchable]="false"
-        bindLabel="name"
         class="select custom">
       </ng-select>
     </div>
@@ -27,9 +33,12 @@
     <div>
       <h4>before the lockdown</h4>
       <p>How many kilometers do you use public transport <u>per week</u>?</p>
-      <ng-select [items]="['bab', 'ad']"
+      <ng-select
+        [(ngModel)]="carbonCalculator.userSelection.mobilityPublicTransportPerWeekBefore"
+        bindLabel="value"
+        bindValue="key"
+        [items]="carbonCalculator.mobilityPublicTransportPerWeekBefore"
         [searchable]="false"
-        bindLabel="name"
         class="select custom">
       </ng-select>
     </div>
@@ -37,9 +46,12 @@
     <div>
       <h4>during the lockdown</h4>
       <p>How many kilometers do you use public transport <u>per week</u>?</p>
-      <ng-select [items]="['bab', 'ad']"
+      <ng-select
+        [(ngModel)]="carbonCalculator.userSelection.mobilityPublicTransportPerWeekAfter"
+        bindLabel="value"
+        bindValue="key"
+        [items]="carbonCalculator.mobilityPublicTransportPerWeekAfter"
         [searchable]="false"
-        bindLabel="name"
         class="select custom">
       </ng-select>
     </div>
@@ -48,14 +60,8 @@
   <div class="column">
     <p><b>Why did you move less than before the lockdown?</b></p>
     <div class="column">
-      <div class="row">
-        <input type="radio" value="0" name="reason" ngModel> Because I'm working in the home office.
-      </div>
-      <div class="row">
-        <input type="radio" value="1" name="reason" ngModel> Because I'm working not that far away anymore.
-      </div>
-      <div class="row">
-        <input type="radio" value="2" name="reason" ngModel> Because I'm using my bike now.
+      <div class="row" *ngFor="let whyDidyouMoveLess of carbonCalculator.whyDidyouMoveLess; let i=index">
+        <input type="radio" [value]="whyDidyouMoveLess.key" [(ngModel)]="carbonCalculator.userSelection.whyDidyouMoveLess"> {{whyDidyouMoveLess.value}}
       </div>
     </div>
   </div>

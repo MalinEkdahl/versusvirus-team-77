@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Category } from './types/Category';
+import {
+  mobilityCarPerYearBefore,
+  mobilityCarPerWeekAfter,
+  mobilityPublicTransportPerWeekBefore,
+  mobilityPublicTransportPerWeekAfter,
+  whyDidyouMoveLess,
+} from 'src/app/types/MobilityValues';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +20,20 @@ export class CarbonCalculatorService {
     [Category.FOOD]: 1,
     [Category.TRAVELLING]: 1,
   }
+
+  public mobilityCarPerYearBefore = mobilityCarPerYearBefore;
+  public mobilityCarPerWeekAfter = mobilityCarPerWeekAfter;
+  public mobilityPublicTransportPerWeekBefore = mobilityPublicTransportPerWeekBefore;
+  public mobilityPublicTransportPerWeekAfter = mobilityPublicTransportPerWeekAfter;
+  public whyDidyouMoveLess = whyDidyouMoveLess;
+
+  public userSelection = {
+    mobilityCarPerYearBefore: 0,
+    mobilityCarPerWeekAfter: 0,
+    mobilityPublicTransportPerWeekBefore: 0,
+    mobilityPublicTransportPerWeekAfter: 0,
+    whyDidyouMoveLess: 0
+  };
   
   /**
    * @param category The category of the C02 emitter
