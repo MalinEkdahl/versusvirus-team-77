@@ -15,6 +15,15 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  backQuestion() {
+    for (let i = 0; i < this.showQuestions.length; i++) {
+      // We want the last question
+      this.showQuestions[i - 1] = true;
+      this.showQuestions[i] = false;
+      break;
+    }
+  }
+
   showQuestion() {
     for (let i = 0; i < this.showQuestions.length; i++) {
       if (this.showQuestions[i]) {
