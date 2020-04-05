@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CarbonCalculatorService } from '../carbon-calculator.service';
 
 @Component({
   selector: 'app-evaluation',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EvaluationComponent implements OnInit {
 
-  constructor() { }
+  constructor(public carbonCalculator: CarbonCalculatorService) { }
 
   ngOnInit(): void {
   }
