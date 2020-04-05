@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Category } from './types/Category';
 
 @Injectable({
   providedIn: 'root'
@@ -34,15 +35,4 @@ export class CarbonCalculatorService {
   }
 
   constructor() { }
-}
-
-/**
- * Category of the CO2 emitter
- */
-export enum Category {
-  BENZIN,
-  DIESEL,
-  TRAIN,
-  FOOD,
-  TRAVELLING
 }
