@@ -25,5 +25,23 @@
                 </div>
             </div>
         </div>
+        <div class="row for-value">
+            <div class="row-child-fix">
+                <div class="result-in-percent-left" [ngStyle]="getBeforeWidth(carbonCalculator.userResults.travel)">
+                    <p>{{carbonCalculator.userResults.travel.before}}kg CO<sub>2</sub></p>
+                </div>
+            </div>
+            <div class="show-on-sm">
+                before
+                <h2>Travel</h2>
+                after
+            </div>
+            <h2 class="hide-on-sm">Travel</h2>
+            <div class="row-child-fix">
+                <div class="result-in-percent-right" [ngStyle]="getAfterWidth(carbonCalculator.userResults.travel)">
+                    <p>{{carbonCalculator.userResults.travel.after}}kg CO<sub>2</sub></p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
