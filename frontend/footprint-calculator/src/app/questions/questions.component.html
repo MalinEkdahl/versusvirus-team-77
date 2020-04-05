@@ -1,12 +1,20 @@
 <div>
     <app-question-one *ngIf="showQuestions[0]"></app-question-one>
     <app-question-two *ngIf="showQuestions[1]"></app-question-two>
-    <button *ngIf="!showQuestions[0]" class="button-next-question" (click)="backQuestion()">
-        back
-        <i class="arrow left" ></i>
-    </button>
-    <button class="button-next-question" (click)="showQuestion()">
+    <br />
+    <div class="nav-row">
+    <div class="question-nav">
+        <div (click)="backQuestion()" *ngIf="!showQuestions[0]">
+        Previous question
+        <i class="arrow left" (click)="backQuestion()"></i>
+        </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="question-nav">
+        <div (click)="showQuestion()">
         Next question
-        <i class="arrow right" ></i>
-    </button>
+        <i class="arrow right"  (click)="showQuestion()"></i>
+        </div>
+    </div>
+    </div>
 </div>

@@ -1,13 +1,14 @@
 i {
     border: solid white;
-    border-width: 0 3px 3px 0;
+    border-width: 0 6px 6px 0;
+    border-radius: 2px;
     display: inline-block;
-    padding: 3px;
+    padding: 6px;
   }
   
   .left {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
   }
   
   .up {
@@ -26,15 +27,20 @@ i {
     cursor: pointer;
   }
 
-.button-next-question {
-  position: relative;
-  background: blue;
-  border: blue 1px solid;
-  color: white;
-  float: right;
-  cursor: pointer;
+.question-nav {
+    font-size: large;
+    flex:1;
+    cursor: pointer;
+}
+
+.spacer {
+    flex:3;
+}
+
+.nav-row {
+    display: flex;
 }
 
 .logo {
-  height: 20vh;
+    height: 20vh;
 }
