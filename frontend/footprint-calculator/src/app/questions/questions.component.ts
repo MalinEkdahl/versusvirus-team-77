@@ -8,7 +8,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class QuestionsComponent implements OnInit {
   @Output() endOfQuestions = new EventEmitter<boolean>();
 
-  public showQuestions: boolean[] = [false, false];
+  public showQuestions: boolean[] = [true, false];
 
   constructor() { }
 
