@@ -57,7 +57,7 @@ export class CarbonCalculatorService {
   }
 
   private calculateTravel() {
-    this.userResults.travel.before = (this.userSelection.hoursSpentInAirplane * categoryConst.airplane/2) + (this.userSelection.daysSpentOnCruise * categoryConst.cruise/2) + this.userSelection.daysSpentInHotelBefore * categoryConst.hotel
+    this.userResults.travel.before = (this.userSelection.hoursSpentInAirplane * categoryConst.airplane/2) + (this.userSelection.daysSpentOnCruise * categoryConst.cruise/2) + this.userSelection.daysSpentInHotelBefore * categoryConst.hotel;
     this.userResults.travel.after = this.userSelection.daysSpentInHotelAfter * categoryConst.hotel;
   }
 
