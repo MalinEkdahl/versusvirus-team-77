@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-questions',
@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
-  public showQuestions: boolean[] = [true, false];
+  @Output() endOfQuestions = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -16,9 +16,16 @@ export class QuestionsComponent implements OnInit {
   showQuestion() {
     for (let i = 0; i < this.showQuestions.length; i++) {
       if (this.showQuestions[i]) {
-        this.showQuestions[i + 1] = true;
-        this.showQuestions[i] = false;
-        break;
+        if (i === this.showQuestions.length - 1) {
+          // we have reach the end of questions
+          this.endOfQuestions.emit(true);
+          break;
+        } else {
+          // We want the next question
+          this.showQuestions[i + 1] = true;
+          this.showQuestions[i] = false;
+          break;
+        }
       }
     }
   }
