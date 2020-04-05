@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { categoryConst, Category } from './types/Category';
+import { categoryConst } from './types/Category';
 import {
-  mobilityCarPerYearBefore,
+  mobilityCarPerWeekBefore,
   mobilityCarPerWeekAfter,
   mobilityPublicTransportPerWeekBefore,
   mobilityPublicTransportPerWeekAfter,
@@ -12,14 +12,14 @@ import {
   providedIn: 'root'
 })
 export class CarbonCalculatorService {
-  public mobilityCarPerYearBefore = mobilityCarPerYearBefore;
+  public mobilityCarPerWeekBefore = mobilityCarPerWeekBefore;
   public mobilityCarPerWeekAfter = mobilityCarPerWeekAfter;
   public mobilityPublicTransportPerWeekBefore = mobilityPublicTransportPerWeekBefore;
   public mobilityPublicTransportPerWeekAfter = mobilityPublicTransportPerWeekAfter;
   public whyDidyouMoveLess = whyDidyouMoveLess;
 
   public userSelection = {
-    mobilityCarPerYearBefore: 0,
+    mobilityCarPerWeekBefore: 0,
     mobilityCarPerWeekAfter: 0,
     mobilityPublicTransportPerWeekBefore: 0,
     mobilityPublicTransportPerWeekAfter: 0,
@@ -29,25 +29,14 @@ export class CarbonCalculatorService {
   public userResults = {
     mobility: {before: 1, after: 0}
   }
-  
-  /**
-   * @param category The category of the C02 emitter
-   * @param beforeInput The value before crisis (km, ...)
-   * @param afterInput The value after crisis (km, ...)
-   * @return delta of carbon emission
-   */
-  carbonDeltaCalculation(category: Category, beforeInput: number, afterInput: number) {
-    const deltaEmission = this.carbonCalculation(category, beforeInput) - this.carbonCalculation(category, afterInput)
-    return deltaEmission;
+
+  public calculateAll() {
+    this.calculateMobility();
   }
-  
-  /**
-   * @param category The category of the vehicle
-   * @param input
-   * @return carbon emission
-   */
-  carbonCalculation(category: Category, input: number) {
-    return input * categoryConst[category];
+
+  private calculateMobility() {
+    this.userResults.mobility.before = this.userSelection.mobilityCarPerWeekBefore * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekBefore * categoryConst.publicTransport
+    this.userResults.mobility.after = this.userSelection.mobilityCarPerWeekAfter * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekAfter * categoryConst.publicTransport
   }
 
   constructor() { }

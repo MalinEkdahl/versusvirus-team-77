@@ -8,7 +8,9 @@ import { CarbonCalculatorService } from '../carbon-calculator.service';
 })
 export class EvaluationComponent implements OnInit {
 
-  constructor(public carbonCalculator: CarbonCalculatorService) { }
+  constructor(public carbonCalculator: CarbonCalculatorService) {
+    this.carbonCalculator.calculateAll();
+  }
 
   getAfterWidth(values: {before: number, after: number}) {
     const total = (values.before + values.after);

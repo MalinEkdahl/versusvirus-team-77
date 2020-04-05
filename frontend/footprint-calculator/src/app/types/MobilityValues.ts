@@ -1,11 +1,13 @@
-export const mobilityCarPerYearBefore = [
-  { key: 0, value: "not using" },
-  { key: 2500, value: "0 to 5000km" },
-  { key: 7500, value: "5000 - 10’000km" },
-	{ key: 12500, value: "10’000 - 15’000km" },
-	{ key: 17500, value: "15’000 - 20’000km" },
-	{ key: 25000, value: "20’000 - 30’000km" },
-	{ key: 30000, value: "30’000km +" }
+export const mobilityCarPerWeekBefore = [
+  { key: 0, value: "Not using" },
+  { key: 125, value: "0 - 250km" },
+  { key: 375, value: "250 - 500km" },
+	{ key: 625, value: "500 - 750km" },
+	{ key: 875, value: "750 - 1000km" },
+	{ key: 1125, value: "1000 - 1250km" },
+  { key: 1375, value: "1250 - 1500km" },
+  { key: 1750, value: "1500 - 2000km" },
+  { key: 2000, value: "2000km +" }
 ]
 
 export const mobilityCarPerWeekAfter = [
