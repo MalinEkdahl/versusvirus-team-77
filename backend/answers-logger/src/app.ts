@@ -1,23 +1,29 @@
 import express, { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import fs from "fs";
-import os from "os";
+import mkdirp from "mkdirp";
+
+// init logs
+mkdirp.sync("./logs");
+if (!fs.existsSync("./logs/answer.log")) {
+  fs.writeFileSync("./logs/answer.log", "{}");
+}
+const logFile = fs.createWriteStream('./logs/answer.log', {flags: 'a'});
 
 const app: Application = express();
-const logFile =  fs.createWriteStream('./answer.log', {flags: 'a'});
-
 app.use(express.json());
 app.use(cors());
 
 // Logger
 app.post("/answer", (req: Request, res: Response, next: NextFunction) => {
-  logFile.write(Date.now().toString() + JSON.stringify(req.body) + os.EOL);
+  logFile.write(',' + JSON.stringify(req.body));
   res.send();
 });
 
 // Base route, that could be erased but if we need to test the api for availability it's here.
 app.get("/", (req: Request, res: Response): object => {
-    return res.json({ status: "success", message: "Welcome to API Service" });
+    const logs = fs.readFileSync('./logs/answer.log', 'utf8')
+    return res.json(JSON.parse('['+logs+']'));
   }
 );
 // Route not found handler
