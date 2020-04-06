@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  logApi: "http://backend.co2vid19.ch"
 };

@@ -12,3 +12,8 @@ services:
     build: ./frontend/footprint-calculator
     environment:
       - VIRTUAL_HOST=co2vid19.ch
+
+  backend:
+    build: ./backend/answers-logger
+    environment:
+      - VIRTUAL_HOST=backend.co2vid19.ch
