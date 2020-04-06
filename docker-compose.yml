@@ -5,15 +5,40 @@ services:
     image: jwilder/nginx-proxy
     ports:
       - "80:80"
+      - "443:443"
     volumes:
+      - certs:/etc/nginx/certs
+      - html:/usr/share/nginx/html
+      - vhost:/etc/nginx/vhost.d
       - /var/run/docker.sock:/tmp/docker.sock:ro
+    
+  ssl-renewer:
+      image: jrcs/letsencrypt-nginx-proxy-companion
+      volumes:
+          - certs:/etc/nginx/certs
+          - vhost:/etc/nginx/vhost.d
+          - html:/usr/share/nginx/html
+          - /var/run/docker.sock:/var/run/docker.sock:ro
 
   app:
     build: ./frontend/footprint-calculator
     environment:
-      - VIRTUAL_HOST=co2vid19.ch
+      VIRTUAL_HOST: co2vid19.ch
+      LETSENCRYPT_HOST: co2vid19.ch
+      LETSENCRYPT_EMAIL: balthazar.de.moncuit@gmail.com
 
   backend:
+    container_name: backend
     build: ./backend/answers-logger
     environment:
-      - VIRTUAL_HOST=backend.co2vid19.ch
+      VIRTUAL_HOST: backend.co2vid19.ch
+      LETSENCRYPT_HOST: backend.co2vid19.ch
+      LETSENCRYPT_EMAIL: balthazar.de.moncuit@gmail.com
+    volumes:
+      - logs:/app/logs
+
+volumes:
+  logs:
+  vhost:
+  html:
+  certs:
