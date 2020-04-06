@@ -13,6 +13,7 @@ import {
   daysSpentInHotelBefore,
   daysSpentInHotelAfter
 } from 'src/app/types/TravelValues';
+import { LogApiService } from './log-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,8 @@ export class CarbonCalculatorService {
   public calculateAll() {
     this.calculateMobility();
     this.calculateTravel();
+
+    this.logApi.log({date: new Date(), result: this.userResults, unit: "kg/year"});
   }
 
   private calculateMobility() {
@@ -68,5 +71,5 @@ export class CarbonCalculatorService {
     this.userResults.travel.after /= 1000; // fix calculation of grams to kilograms
   }
 
-  constructor() { }
+  constructor(private logApi: LogApiService) { }
 }

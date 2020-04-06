@@ -10,6 +10,6 @@ export class LogApiService {
   constructor(private http: HttpClient) { }
 
   log(json: Object) {
-    this.http.post(environment.logApi + "/answer", json);
+    this.http.post(environment.logApi + "/answer", json).toPromise()
   }
 }
