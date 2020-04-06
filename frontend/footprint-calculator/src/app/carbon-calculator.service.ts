@@ -54,8 +54,8 @@ export class CarbonCalculatorService {
   private calculateMobility() {
     this.userResults.mobility.before = 52 * (this.userSelection.mobilityCarPerWeekBefore * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekBefore * categoryConst.publicTransport);
     this.userResults.mobility.after = 52 * (this.userSelection.mobilityCarPerWeekAfter * categoryConst.car + this.userSelection.mobilityPublicTransportPerWeekAfter * categoryConst.publicTransport);
-    this.userResults.mobility.before /= 1000000; // fix calculation of grams to tons
-    this.userResults.mobility.after /= 1000000; // fix calculation of grams to tons
+    this.userResults.mobility.before /= 1000; // fix calculation of grams to kilograms
+    this.userResults.mobility.after /= 1000; // fix calculation of grams to kilograms
   }
 
   private calculateTravel() {
@@ -64,8 +64,8 @@ export class CarbonCalculatorService {
     const daysGoneBy = lockdown.getTime() - today.getTime() / (1000 * 3600 * 24);
     this.userResults.travel.before = (this.userSelection.hoursSpentInAirplane * categoryConst.airplane/2) + (this.userSelection.daysSpentOnCruise * categoryConst.cruise/2) + this.userSelection.daysSpentInHotelBefore * categoryConst.hotel;
     this.userResults.travel.after = 365 * (this.userSelection.daysSpentInHotelAfter * categoryConst.hotel / daysGoneBy);
-    this.userResults.travel.before /= 1000000; // fix calculation of grams to tons
-    this.userResults.travel.after /= 1000000; // fix calculation of grams to tons
+    this.userResults.travel.before /= 1000; // fix calculation of grams to kilograms
+    this.userResults.travel.after /= 1000; // fix calculation of grams to kilograms
   }
 
   constructor() { }
